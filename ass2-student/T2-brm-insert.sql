@@ -254,4 +254,144 @@ INSERT INTO quote VALUES (
 --INSERT INTO job
 --------------------------------------
 
+INSERT INTO job VALUES (
+    1,
+    TO_DATE('05-May-2026 09:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('05-May-2026 17:00', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'Y', 1, 3, 6, 'TRL01', '1HGBH41JXMN109186'
+);
 
+INSERT INTO job VALUES (
+    2,
+    TO_DATE('06-May-2026 08:30', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('06-May-2026 16:30', 'dd-Mon-yyyy hh24:mi'),
+    970.00, 'Y', 2, 4, 7, 'TRL02', '2FMDK3GC8BBA12345'
+);
+
+INSERT INTO job VALUES (
+    3,
+    TO_DATE('08-May-2026 10:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('08-May-2026 15:00', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'N', 3, 9, 8, 'TRL03', '3VWFE21C04M000001'
+);
+
+INSERT INTO job VALUES (
+    4,
+    TO_DATE('10-May-2026 09:30', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('10-May-2026 14:30', 'dd-Mon-yyyy hh24:mi'),
+    730.00, 'Y', 4, 3, 6, 'TRL04', '4T1BF1FK5CU123456'
+);
+
+INSERT INTO job VALUES (
+    5,
+    TO_DATE('12-May-2026 11:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('12-May-2026 15:30', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'N', 5, 4, 7, 'TRL05', '5FNRL5H40BB098765'
+);
+
+INSERT INTO job VALUES (
+    6,
+    TO_DATE('15-May-2026 08:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('15-May-2026 18:00', 'dd-Mon-yyyy hh24:mi'),
+    1180.00, 'Y', 6, 9, 8, 'TRL06', '1FTFW1ET5DFC10112'
+);
+
+INSERT INTO job VALUES (
+    7,
+    TO_DATE('16-May-2026 09:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('16-May-2026 16:00', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'Y', 7, 3, 6, 'TRL07', '2C4RDGCG8ER123789'
+);
+
+INSERT INTO job VALUES (
+    8,
+    TO_DATE('18-May-2026 08:30', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('18-May-2026 17:00', 'dd-Mon-yyyy hh24:mi'),
+    940.00, 'N', 8, 4, 7, 'TRL08', '5XYKT3A69CG234567'
+);
+
+INSERT INTO job VALUES (
+    9,
+    TO_DATE('20-May-2026 10:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('20-May-2026 16:30', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'Y', 9, 9, 8, 'TRL05', '1HGBH41JXMN109186'
+);
+
+INSERT INTO job VALUES (
+    10,
+    TO_DATE('22-May-2026 09:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('22-May-2026 14:00', 'dd-Mon-yyyy hh24:mi'),
+    760.00, 'Y', 10, 3, 6, 'TRL08', '2FMDK3GC8BBA12345'
+);
+
+INSERT INTO job VALUES (
+    11,
+    TO_DATE('25-May-2026 08:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('25-May-2026 18:00', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'N', 11, 4, 7, 'TRL01', '1HGBH41JXMN109186'
+);
+
+INSERT INTO job VALUES (
+    12,
+    TO_DATE('27-May-2026 07:30', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('27-May-2026 19:00', 'dd-Mon-yyyy hh24:mi'),
+    1520.00, 'Y', 12, 9, 8, 'TRL02', '2FMDK3GC8BBA12345'
+);
+
+INSERT INTO job VALUES (
+    13,
+    TO_DATE('30-May-2026 09:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('30-May-2026 17:30', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'Y', 13, 3, 6, 'TRL03', '3VWFE21C04M000001'
+);
+
+INSERT INTO job VALUES (
+    14,
+    TO_DATE('01-Jun-2026 08:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('01-Jun-2026 19:00', 'dd-Mon-yyyy hh24:mi'),
+    1280.00, 'N', 14, 4, 7, 'TRL04', '4T1BF1FK5CU123456'
+);
+
+INSERT INTO job VALUES (
+    15,
+    TO_DATE('03-Jun-2026 10:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('03-Jun-2026 16:00', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'Y', 15, 9, 8, 'TRL05', '5FNRL5H40BB098765'
+);
+
+INSERT INTO job VALUES (
+    16,
+    TO_DATE('05-Jun-2026 08:30', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('05-Jun-2026 18:30', 'dd-Mon-yyyy hh24:mi'),
+    1420.00, 'Y', 16, 3, 6, 'TRL06', '1FTFW1ET5DFC10112'
+);
+
+INSERT INTO job VALUES (
+    17,
+    TO_DATE('08-Jun-2026 09:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('08-Jun-2026 14:00', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'N', 17, 4, 7, 'TRL07', '2C4RDGCG8ER123789'
+);
+
+INSERT INTO job VALUES (
+    18,
+    TO_DATE('10-Jun-2026 09:30', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('10-Jun-2026 15:30', 'dd-Mon-yyyy hh24:mi'),
+    850.00, 'Y', 18, 9, 8, 'TRL08', '5XYKT3A69CG234567'
+);
+
+INSERT INTO job VALUES (
+    19,
+    TO_DATE('12-Jun-2026 10:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('12-Jun-2026 15:00', 'dd-Mon-yyyy hh24:mi'),
+    NULL, 'Y', 19, 3, 6, 'TRL05', '1HGBH41JXMN109186'
+);
+
+INSERT INTO job VALUES (
+    20,
+    TO_DATE('15-Jun-2026 08:00', 'dd-Mon-yyyy hh24:mi'),
+    TO_DATE('15-Jun-2026 17:00', 'dd-Mon-yyyy hh24:mi'),
+    1200.00, 'N', 20, 4, 7, 'TRL08', '2FMDK3GC8BBA12345'
+);
+
+COMMIT;
