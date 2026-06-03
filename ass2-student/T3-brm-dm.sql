@@ -11,6 +11,19 @@
 
 --3(a)
 
+-- Drop sequences before recreating them
+DROP SEQUENCE employee_seq;
+DROP SEQUENCE quote_seq;
+DROP SEQUENCE job_seq;
+
+-- Create sequence for new EMPLOYEE primary key values
+CREATE SEQUENCE employee_seq START WITH 300 INCREMENT BY 5;
+
+-- Create sequence for new QUOTE primary key values
+CREATE SEQUENCE quote_seq START WITH 300 INCREMENT BY 5;
+
+-- Create sequence for new JOB primary key values
+CREATE SEQUENCE job_seq START WITH 300 INCREMENT BY 5;
 
 --3(b)
 
