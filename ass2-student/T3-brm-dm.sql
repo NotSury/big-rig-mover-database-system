@@ -50,6 +50,60 @@ COMMIT;
 
 --3(c)
 
+-- Insert the quote prepared by Aurello Brown for Victoria Ella
+-- The customer and dispatcher are found using subqueries
+INSERT INTO quote VALUES (
+    quote_seq.nextval,
+    to_date('17-May-2026', 'dd-Mon-yyyy'),
+    to_date('25-May-2026', 'dd-Mon-yyyy'),
+    '29 Kuranda Road, Adelaide SA 5030',
+    '9 Albatros Drive, Mount Gambier SA 5270',
+    1000.00,
+    (
+        SELECT cust_no
+        FROM customer 
+        WHERE upper(cust_gname) = upper('VICTORIA')
+        AND upper(cust_fname) = upper('ELLA')
+        AND upper(cust_bname) = upper('Flintstone Store')
+    ),
+    (
+        SELECT emp_no
+        FROM employee
+        WHERE upper(emp_gname) = upper('Aurello')
+        AND upper(emp_fname) = upper('Brown')
+        AND emp_role = 'T'
+    )
+);
+
+-- Insert the job created from the quote above
+-- quote_seq.currval is used to get the number generated in the previous insert
+-- job_cost is NULL because the job cost is the same as the quote cost
+INSERT INTO job VALUES(
+    job_seq.nextval,
+    to_date('25-May-2026 09:00', 'dd-Mon-yyyy hh24:mi'),
+    to_date('25-May-2026 09:00', 'dd-Mon-yyyy hh24:mi') + 5/24,
+    NULL,
+    'Y',
+    quote_seq.currval,
+    (
+        SELECT emp_no
+        FROM employee
+        WHERE upper(emp_gname) = upper('Aurello')
+        AND upper(emp_fname) = upper('Brown')
+        AND emp_role = 'T'
+    ),
+    (
+        SELECT emp_no
+        FROM employee
+        WHERE upper(emp_gname) = upper('Michael')
+        AND upper(emp_fname) = upper('Johnson')
+        AND emp_role = 'D'
+    ),
+    'TRL08',
+    '1HGBH41JXMN109186'
+);
+
+COMMIT;
 
 --3(d)
 
