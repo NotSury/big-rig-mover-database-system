@@ -107,6 +107,32 @@ COMMIT;
 
 --3(d)
 
+-- Update the JOB details for Victoria Ella
+-- Job cost must be updated since it is no longer the same as quote cost. 
+-- Join QUOTE and CUSTOMER on cust_no to find the correct quote
+UPDATE job
+SET 
+    job_pickup_dt = to_date('25-May-2026 14:00', 'dd-Mon-yyyy hh24:mi'),
+    job_intended_dropoff_dt = to_date('25-May-2026 14:00', 'dd-Mon-yyyy hh24:mi') + 5/24,
+    job_cost = (
+        SELECT quote_cost * 1.2
+        FROM quote
+        WHERE quote.quote_no = job.quote_no
+    ),
+    job_payment_made = 'Y'
+
+WHERE quote_no = (
+    SELECT q.quote_no
+    FROM quote q
+    JOIN customer c
+    ON q.cust_no = c.cust_no
+    WHERE upper(c.cust_gname) = upper('VICTORIA')
+    AND upper(c.cust_fname) = upper('ELLA')
+    AND upper(c.cust_bname) = upper('Flintstone Store')
+    AND q.quote_prepared_date = to_date('17-May-2026', 'dd-Mon-yyyy')
+);
+
+COMMIT;
 
 --3(e)
 
