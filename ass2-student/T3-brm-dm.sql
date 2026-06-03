@@ -136,3 +136,19 @@ COMMIT;
 
 --3(e)
 
+-- Delete the JOB row where the quote_no is Victoria Ella's 17-May-2026 quote
+-- The QUOTE row is kept because only the job is cancelled
+DELETE FROM job
+WHERE quote_no = (
+    SELECT q.quote_no
+    FROM quote q
+    JOIN customer c
+    ON q.cust_no = c.cust_no
+    
+    WHERE upper(c.cust_gname) = upper('VICTORIA')
+    AND upper(c.cust_fname) = upper('ELLA')
+    AND upper(c.cust_bname) = upper('Flintstone Store')
+    AND q.quote_prepared_date = to_date('17-May-2026', 'dd-Mon-yyyy')
+);
+
+COMMIT;
