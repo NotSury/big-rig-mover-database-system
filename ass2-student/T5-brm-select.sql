@@ -45,7 +45,32 @@ ORDER BY
 -- ENSURE that your query is formatted and has a semicolon
 -- (;) at the end of this answer
 
-
+-- The employee table is joined to itself to find each employee's manager name
+-- LEFT OUTER JOIN is used so managers with no manager still appear
+-- A correlated subquery counts the number of jobs scheduled by each employee
+-- The job count is only displayed for Truck Dispatchers
+SELECT
+    e.emp_no,
+    TRIM(e.emp_gname || ' ' || e.emp_fname) AS emp_name,
+    CASE e.emp_role
+        WHEN 'B' THEN 'Manager'
+        WHEN 'T' THEN 'Truck Dispatcher'
+        WHEN 'M' THEN 'Mechanic'
+        WHEN 'D' THEN 'Driver'
+    END AS emp_role_full,
+    NVL(TRIM(m.emp_gname || ' ' || m.emp_fname), 'No Manager') AS manager_name,
+    CASE 
+        WHEN e.emp_role = 'T' THEN to_char((
+            SELECT COUNT(*)
+            FROM job j
+            WHERE j.sched_emp_no = e.emp_no
+        ))
+    END AS jobs_dispatched
+FROM employee e
+    LEFT OUTER JOIN employee m
+        ON e.emp_no_manager = m.emp_no
+ORDER BY
+    e.emp_no;
 
 /* (c) */
 -- PLEASE PLACE REQUIRED SQL SELECT STATEMENT FOR THIS PART HERE
