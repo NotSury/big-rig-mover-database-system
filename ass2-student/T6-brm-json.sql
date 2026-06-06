@@ -117,7 +117,7 @@ SELECT
             )
             ORDER BY q.quote_no
         ) FORMAT JSON
-    )
+    ) || ','
 FROM customer c
 JOIN quote q
 ON c.cust_no = q.cust_no

@@ -441,7 +441,25 @@ db.customer_quotes.find();
 // ENSURE that your query is formatted and has a semicolon
 // (;) at the end of this answer
 
-
+// Finds customers who made at least two quotes and live in Melbourne.
+// The address condition uses a regular expression to match Melbourne
+// anywhere inside the customer_address field.
+db.customer_quotes.find(
+    {
+        "customer_stats.number_of_quotes": { "$gte": 2},
+        "customer_address": /.*Melbourne.*/
+    },
+    {
+        "_id": 1,
+        "customer_name": 1,
+        "customer_address": 1,
+        "customer_phone": 1,
+        "customer_stats.number_of_quotes": 1,
+        "customer_stats.number_of_jobs": 1,
+        "customer_stats.total_paid_jobcost": 1,
+        "customer_stats.total_unpaid_jobcost": 1
+    }
+);
 
 // (d)
 // PLEASE PLACE REQUIRED MONGODB COMMAND/S FOR THIS PART HERE
