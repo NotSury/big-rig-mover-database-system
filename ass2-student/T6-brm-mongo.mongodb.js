@@ -468,14 +468,73 @@ db.customer_quotes.find(
 
 // (i)  Add the new customer
 
+// Add Patrick Bosse as a new customer document.
+// Patrick has not made any quotes yet, so the quote and job counts are zero.
+// The quotes array is empty until his first quote is added.
+db.customer_quotes.insertOne(
+    {
+        "_id": 1001,
+        "customer_name": "Patrick Bosse",
+        "customer_business": "-",
+        "customer_address": "18 King William Street, Adelaide, 5000",
+        "customer_phone": "0412345678",
+        "customer_stats": {
+            "number_of_quotes": 0,
+            "number_of_jobs": 0,
+            "total_paid_jobcost": "-",
+            "total_unpaid_jobcost": "-"
+        },
+        "quotes": []
+    }
+);
 
 // Show the customer details
 
+db.customer_quotes.find(
+    {
+        "_id": 1001
+    }
+);
 
 // (ii) Add new quote
 
+// Add Patrick's first quote to the quotes array.
+// The quote is immediately assigned to a job, so assigned_to_job is Y.
+// The job cost is the same as the quote cost, and payment has been made.
+// Customer statistics are updated to reflect one quote, one job,
+// and a total paid job cost of $3,200.00.
+db.customer_quotes.updateOne(
+    {
+        "_id": 1001
+    },
+    {
+        "$push": {
+            "quotes": {
+                "quote_no": 2002,
+                "quote_prepared_on": "20-Jul-2026",
+                "preferred_start_date": "25-Jul-2026",
+                "start_location": "Adelaide SA",
+                "end_location": "Melbourne VIC",
+                "quote_cost": "$3,200.00",
+                "assigned_to_job": "Y",
+                "job_cost": "$3,200.00"
+            }
+        },
+        "$set": {
+            "customer_stats.number_of_quotes": 1,
+            "customer_stats.number_of_jobs": 1,
+            "customer_stats.total_paid_jobcost": "$3,200.00",
+            "customer_stats.total_unpaid_jobcost": "-"
+        }
+    }
+);
 
 // Show the customer details
 
+db.customer_quotes.find(
+    {
+        "_id": 1001
+    }
+);
 
 // End of file - do not remove
