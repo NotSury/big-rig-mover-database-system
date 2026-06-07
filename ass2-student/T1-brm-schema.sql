@@ -25,13 +25,13 @@ DROP TABLE quote CASCADE CONSTRAINTS PURGE;
 -- EMPLOYEE
 
 CREATE TABLE employee (
-    emp_no          NUMBER(3) NOT NULL,
-    emp_gname       VARCHAR2(30),
-    emp_fname       VARCHAR2(30),
-    emp_contact_no  CHAR(10) NOT NULL,
-    emp_licenceno   VARCHAR2(11),
-    emp_role        CHAR(1) NOT NULL,
-    emp_no_manager  NUMBER(3)
+    emp_no         NUMBER(3) NOT NULL,
+    emp_gname      VARCHAR2(30),
+    emp_fname      VARCHAR2(30),
+    emp_contact_no CHAR(10) NOT NULL,
+    emp_licenceno  VARCHAR2(11),
+    emp_role       CHAR(1) NOT NULL,
+    emp_no_manager NUMBER(3)
 );
 
 -- Column comments to describe the purpose of each EMPLOYEE attribute
@@ -57,27 +57,29 @@ COMMENT ON COLUMN employee.emp_no_manager IS
     'Employee number of the manager this employee reports to';
 
 -- Primary key constraint for EMPLOYEE
-ALTER TABLE employee 
-    ADD CONSTRAINT employee_pk PRIMARY KEY (emp_no);
+ALTER TABLE employee ADD CONSTRAINT employee_pk PRIMARY KEY ( emp_no );
 
 -- Employee contact number is unique
-ALTER TABLE employee 
-    ADD CONSTRAINT emp_contact_no_uq UNIQUE (emp_contact_no);
+ALTER TABLE employee ADD CONSTRAINT emp_contact_no_uq UNIQUE ( emp_contact_no );
 
 -- Employee drivers licence number must be unique
-ALTER TABLE employee 
-    ADD CONSTRAINT emp_licenceno_uq UNIQUE (emp_licenceno);
+ALTER TABLE employee ADD CONSTRAINT emp_licenceno_uq UNIQUE ( emp_licenceno );
 
 -- Restricting employee role values to valid role codes
-ALTER TABLE employee 
-    ADD CONSTRAINT emp_role_chk CHECK (emp_role IN ('B', 'T', 'M', 'D'));
+ALTER TABLE employee
+    ADD CONSTRAINT emp_role_chk
+        CHECK ( emp_role IN ( 'B',
+                              'T',
+                              'M',
+                              'D' ) );
 
 -- Check that only drivers have licence numbers
-ALTER TABLE employee ADD CONSTRAINT emp_licenceno_chk CHECK (
-    ( emp_role = 'D' AND emp_licenceno IS NOT NULL )
-    OR
-    ( emp_role <> 'D' AND emp_licenceno IS NULL)
-);
+ALTER TABLE employee
+    ADD CONSTRAINT emp_licenceno_chk
+        CHECK ( ( emp_role = 'D'
+           AND emp_licenceno IS NOT NULL )
+            OR ( emp_role <> 'D'
+           AND emp_licenceno IS NULL ) );
 
 
 -- JOB
@@ -127,18 +129,23 @@ COMMENT ON COLUMN job.truck_vin IS
     'Vehicle Identification Number (VIN) of the truck used for the job';
 
 -- Primary key constraint for JOB table
-ALTER TABLE job
-    ADD CONSTRAINT job_pk PRIMARY KEY (job_no);
+ALTER TABLE job ADD CONSTRAINT job_pk PRIMARY KEY ( job_no );
 
 -- Restrict job payment flag to valid values
 ALTER TABLE job
-    ADD CONSTRAINT job_payment_made_chk CHECK ( job_payment_made IN ('Y', 'N'));
+    ADD CONSTRAINT job_payment_made_chk CHECK ( job_payment_made IN ( 'Y',
+                                                                      'N' ) );
 
 
 -- Ensure job cost is not negative when it is recorded
 ALTER TABLE job
-    ADD CONSTRAINT job_cost_chk CHECK ( job_cost IS NULL OR job_cost >= 0);
+    ADD CONSTRAINT job_cost_chk
+        CHECK ( job_cost IS NULL
+            OR job_cost >= 0 );
 
+-- Ensure the intended drop-off date and time is after the pickup date and time 
+ALTER TABLE job ADD CONSTRAINT job_dropoff_after_pickup_chk CHECK ( job_intended_dropoff_dt > job_pickup_dt
+);
 
 -- QUOTE
 
@@ -179,51 +186,57 @@ COMMENT ON COLUMN quote.emp_no IS
     'Employee number of the truck dispatcher who prepared the quote';
 
 -- Primary key constraint for QUOTE table
-ALTER TABLE quote
-    ADD CONSTRAINT quote_pk PRIMARY KEY (quote_no);
+ALTER TABLE quote ADD CONSTRAINT quote_pk PRIMARY KEY ( quote_no );
 
 -- Ensures the quote cost is a non-negative value
-ALTER TABLE quote
-    ADD CONSTRAINT quote_cost_chk CHECK (quote_cost >= 0);
+ALTER TABLE quote ADD CONSTRAINT quote_cost_chk CHECK ( quote_cost >= 0 );
 
+-- Ensure preferred start date is not before quote prepared date
+ALTER TABLE quote ADD CONSTRAINT quote_pref_start_date_chk CHECK ( quote_pref_start_date >= quote_prepared_date
+);
 
 -- Add all missing FK Constraints below here
 
 -- /Foreign keys for employee table/
-ALTER TABLE employee 
-    ADD CONSTRAINT employee_employee_fk
-        FOREIGN KEY (emp_no_manager)
-        REFERENCES employee (emp_no);
+
+-- The manager field refers to an employee record
+ALTER TABLE employee
+    ADD CONSTRAINT employee_employee_fk FOREIGN KEY ( emp_no_manager )
+        REFERENCES employee ( emp_no );
 
 -- /Foreign keys for job table/
 
+-- The job is linked to its quote
 ALTER TABLE job
-    ADD CONSTRAINT quote_job_fk
-        FOREIGN KEY (quote_no)
-        REFERENCES quote (quote_no);
+    ADD CONSTRAINT quote_job_fk FOREIGN KEY ( quote_no )
+        REFERENCES quote ( quote_no );
 
+-- The job is linked to the employee who scheduled it
 ALTER TABLE job
-    ADD CONSTRAINT employee_job_schedules_fk
-        FOREIGN KEY (sched_emp_no)
-        REFERENCES employee (emp_no);
+    ADD CONSTRAINT employee_job_schedules_fk FOREIGN KEY ( sched_emp_no )
+        REFERENCES employee ( emp_no );
 
+-- The job is linked to the employee who drives it
 ALTER TABLE job
-    ADD CONSTRAINT employee_job_drives_fk
-        FOREIGN KEY (driver_emp_no)
-        REFERENCES employee (emp_no);
+    ADD CONSTRAINT employee_job_drives_fk FOREIGN KEY ( driver_emp_no )
+        REFERENCES employee ( emp_no );
 
+-- The job is linked to the truck and trailer combination used
 ALTER TABLE job
     ADD CONSTRAINT combination_job_fk
-        FOREIGN KEY (trailer_code, truck_vin)
-        REFERENCES combination (trailer_code, truck_vin);
+        FOREIGN KEY ( trailer_code,
+                      truck_vin )
+            REFERENCES combination ( trailer_code,
+                                     truck_vin );
 
 -- /Foreign keys for quote table/
-ALTER TABLE quote
-    ADD CONSTRAINT customer_quote_fk
-        FOREIGN KEY (cust_no)
-        REFERENCES customer (cust_no);
 
+-- The quote is linked to the customer who requested it
 ALTER TABLE quote
-    ADD CONSTRAINT employee_quote_fk
-        FOREIGN KEY (emp_no)
-        REFERENCES employee (emp_no);
+    ADD CONSTRAINT customer_quote_fk FOREIGN KEY ( cust_no )
+        REFERENCES customer ( cust_no );
+
+-- The quote is linked to the employee who prepared it
+ALTER TABLE quote
+    ADD CONSTRAINT employee_quote_fk FOREIGN KEY ( emp_no )
+        REFERENCES employee ( emp_no );

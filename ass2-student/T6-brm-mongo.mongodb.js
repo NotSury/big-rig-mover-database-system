@@ -446,7 +446,7 @@ db.customer_quotes.find();
 // anywhere inside the customer_address field.
 db.customer_quotes.find(
     {
-        "customer_stats.number_of_quotes": { "$gte": 2},
+        "customer_stats.number_of_quotes": { "$gte": 2 },
         "customer_address": /.*Melbourne.*/
     },
     {
