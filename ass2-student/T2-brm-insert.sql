@@ -6,16 +6,35 @@
 
 /*
 Indicate if AI was used (Yes/No):
+Yes
 
 If AI was used:
-I used <<specify the GenAI tool here>>
+I used <<Google Gemini>>
 I used these prompts:
+
+"Based on the uploaded T1-brm-schema.sql and the supplied brm-schema-insert.sql,
+create sample data for the EMPLOYEE, QUOTE, and JOB tables only.
+Use the existing customers and existing truck/trailer combinations from
+brm-schema-insert.sql where foreign keys are required.
+
+The data must include at least 10 employees with at least 2 managers, 2 truck dispatchers, 
+1 mechanic, and 2 drivers. It must include 30 quotes involving at least 5 customers and 
+2 truck dispatchers, with at least 2 customers placing at least 2 quotes. It must include 
+20 jobs involving at least 10 truck/trailer combinations, with at least 5 combinations used 
+in at least 2 jobs, at least 2 quotes not converted to jobs, at least 5 jobs with a different 
+cost from the quote, and at least 5 jobs with the same cost as the quote. 
+Use hardcoded numeric primary keys below 100, use TO_DATE for dates between 
+1 May 2026 and 31 July 2026, make the data sensible, and treat all inserts as one transaction 
+with one COMMIT at the end."
+
 */
 
 --------------------------------------
 --INSERT INTO employee
 --------------------------------------
+-- The data includes managers, truck dispatchers, mechanics, and drivers.
 
+-- Sarah Mitchell is inserted as a manager for the Task 3 scenario.
 INSERT INTO employee (
     emp_no, emp_gname, emp_fname, emp_contact_no,
     emp_licenceno, emp_role, emp_no_manager
@@ -56,6 +75,7 @@ INSERT INTO employee (
     NULL, 'M', 2
 );
 
+-- Michael Johnson is inserted as a driver for the Task 3 scenario.
 INSERT INTO employee (
     emp_no, emp_gname, emp_fname, emp_contact_no,
     emp_licenceno, emp_role, emp_no_manager
@@ -99,6 +119,8 @@ INSERT INTO employee (
 --------------------------------------
 --INSERT INTO quote
 --------------------------------------
+-- The quotes are spread across multiple customers and truck dispatchers.
+-- Several customers have more than one quote to support Task 5 and Task 6 queries.
 
 INSERT INTO quote (
     quote_no, quote_prepared_date, quote_pref_start_date,
@@ -300,6 +322,8 @@ INSERT INTO quote (
     'Adelaide', 'Murray Bridge', 1150.00, 4, 4
 );
 
+-- Quotes 21 to 30 are intentionally not converted into jobs.
+-- This provides unfulfilled quotes for later query and JSON testing.
 INSERT INTO quote (
     quote_no, quote_prepared_date, quote_pref_start_date,
     quote_start_location, quote_end_location, quote_cost,
@@ -403,7 +427,9 @@ INSERT INTO quote (
 --------------------------------------
 --INSERT INTO job
 --------------------------------------
+-- These jobs use existing truck/trailer combinations from the supplied COMBINATION table.
 
+-- Jobs with NULL job_cost test cases where the job cost equals the quote cost.
 INSERT INTO job (
     job_no, job_pickup_dt, job_intended_dropoff_dt,
     job_cost, job_payment_made, quote_no,
@@ -415,6 +441,7 @@ INSERT INTO job (
     NULL, 'Y', 1, 3, 6, 'TRL01', '1HGBH41JXMN109186'
 );
 
+-- Jobs with a recorded job_cost test cases where the final job cost differs from the quote.
 INSERT INTO job (
     job_no, job_pickup_dt, job_intended_dropoff_dt,
     job_cost, job_payment_made, quote_no,
@@ -514,6 +541,8 @@ INSERT INTO job (
     760.00, 'Y', 10, 3, 6, 'TRL08', '2FMDK3GC8BBA12345'
 );
 
+-- Jobs 11 to 20 reuse earlier truck/trailer combinations.
+-- This ensures several combinations are used in at least two jobs.
 INSERT INTO job (
     job_no, job_pickup_dt, job_intended_dropoff_dt,
     job_cost, job_payment_made, quote_no,
