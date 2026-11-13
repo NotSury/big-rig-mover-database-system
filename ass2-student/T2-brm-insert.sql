@@ -770,7 +770,7 @@ INSERT INTO job (
            3,
            6,
            'TRL01',
-           '1HGBH41JXMN109186' );
+           '6BRHV40A1PM100101' );
 
 -- Jobs with a recorded job_cost test cases where the final job cost differs from the quote.
 INSERT INTO job (
@@ -793,7 +793,7 @@ INSERT INTO job (
            4,
            7,
            'TRL02',
-           '2FMDK3GC8BBA12345' );
+           '6BRHV40A3NM100214' );
 
 INSERT INTO job (
     job_no,
@@ -815,7 +815,7 @@ INSERT INTO job (
            9,
            8,
            'TRL03',
-           '3VWFE21C04M000001' );
+           '6BRHV38C7LM100327' );
 
 INSERT INTO job (
     job_no,
@@ -837,7 +837,7 @@ INSERT INTO job (
            3,
            6,
            'TRL04',
-           '4T1BF1FK5CU123456' );
+           '6BRHV52B2RM100438' );
 
 INSERT INTO job (
     job_no,
@@ -859,7 +859,7 @@ INSERT INTO job (
            4,
            7,
            'TRL05',
-           '5FNRL5H40BB098765' );
+           '6BRHV40A5NM100542' );
 
 INSERT INTO job (
     job_no,
@@ -881,7 +881,7 @@ INSERT INTO job (
            9,
            8,
            'TRL06',
-           '1FTFW1ET5DFC10112' );
+           '6BRHV52B9SM100655' );
 
 INSERT INTO job (
     job_no,
@@ -903,7 +903,7 @@ INSERT INTO job (
            3,
            6,
            'TRL07',
-           '2C4RDGCG8ER123789' );
+           '6BRHV38C4PM100763' );
 
 INSERT INTO job (
     job_no,
@@ -925,7 +925,7 @@ INSERT INTO job (
            4,
            7,
            'TRL08',
-           '5XYKT3A69CG234567' );
+           '6BRHV40A8SM100986' );
 
 INSERT INTO job (
     job_no,
@@ -947,7 +947,7 @@ INSERT INTO job (
            9,
            8,
            'TRL05',
-           '1HGBH41JXMN109186' );
+           '6BRHV40A1PM100101' );
 
 INSERT INTO job (
     job_no,
@@ -969,7 +969,7 @@ INSERT INTO job (
            3,
            6,
            'TRL08',
-           '2FMDK3GC8BBA12345' );
+           '6BRHV40A3NM100214' );
 
 -- Jobs 11 to 20 reuse earlier truck/trailer combinations.
 -- This ensures several combinations are used in at least two jobs.
@@ -993,7 +993,7 @@ INSERT INTO job (
            4,
            7,
            'TRL01',
-           '1HGBH41JXMN109186' );
+           '6BRHV40A1PM100101' );
 
 INSERT INTO job (
     job_no,
@@ -1015,7 +1015,7 @@ INSERT INTO job (
            9,
            8,
            'TRL02',
-           '2FMDK3GC8BBA12345' );
+           '6BRHV40A3NM100214' );
 
 INSERT INTO job (
     job_no,
@@ -1037,7 +1037,7 @@ INSERT INTO job (
            3,
            6,
            'TRL03',
-           '3VWFE21C04M000001' );
+           '6BRHV38C7LM100327' );
 
 INSERT INTO job (
     job_no,
@@ -1059,7 +1059,7 @@ INSERT INTO job (
            4,
            7,
            'TRL04',
-           '4T1BF1FK5CU123456' );
+           '6BRHV52B2RM100438' );
 
 INSERT INTO job (
     job_no,
@@ -1081,7 +1081,7 @@ INSERT INTO job (
            9,
            8,
            'TRL05',
-           '5FNRL5H40BB098765' );
+           '6BRHV40A5NM100542' );
 
 INSERT INTO job (
     job_no,
@@ -1103,7 +1103,7 @@ INSERT INTO job (
            3,
            6,
            'TRL06',
-           '1FTFW1ET5DFC10112' );
+           '6BRHV52B9SM100655' );
 
 INSERT INTO job (
     job_no,
@@ -1125,7 +1125,7 @@ INSERT INTO job (
            4,
            7,
            'TRL07',
-           '2C4RDGCG8ER123789' );
+           '6BRHV38C4PM100763' );
 
 INSERT INTO job (
     job_no,
@@ -1147,7 +1147,7 @@ INSERT INTO job (
            9,
            8,
            'TRL08',
-           '5XYKT3A69CG234567' );
+           '6BRHV40A8SM100986' );
 
 INSERT INTO job (
     job_no,
@@ -1169,7 +1169,7 @@ INSERT INTO job (
            3,
            6,
            'TRL05',
-           '1HGBH41JXMN109186' );
+           '6BRHV40A1PM100101' );
 
 INSERT INTO job (
     job_no,
@@ -1191,6 +1191,6 @@ INSERT INTO job (
            4,
            7,
            'TRL08',
-           '2FMDK3GC8BBA12345' );
+           '6BRHV40A3NM100214' );
 
 COMMIT;

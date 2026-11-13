@@ -48,7 +48,7 @@ COMMIT;
 
 --3(c)
 
--- Insert the quote prepared by Aurello Brown for Victoria Ella
+-- Insert the quote prepared by Aurello Brown for Harriet Calloway
 -- The customer and dispatcher are found using subqueries
 INSERT INTO quote VALUES ( quote_seq.NEXTVAL,
                            TO_DATE('17-May-2026','dd-Mon-yyyy'),
@@ -59,9 +59,9 @@ INSERT INTO quote VALUES ( quote_seq.NEXTVAL,
                            (
                                SELECT cust_no
                                  FROM customer
-                                WHERE upper(cust_gname) = upper('VICTORIA')
-                                  AND upper(cust_fname) = upper('ELLA')
-                                  AND upper(cust_bname) = upper('Flintstone Store')
+                                WHERE upper(cust_gname) = upper('HARRIET')
+                                  AND upper(cust_fname) = upper('CALLOWAY')
+                                  AND upper(cust_bname) = upper('Saltbush Provisions')
                            ),
                            (
                                SELECT emp_no
@@ -96,13 +96,13 @@ INSERT INTO job VALUES ( job_seq.NEXTVAL,
                                 AND emp_role = 'D'
                          ),
                          'TRL08',
-                         '1HGBH41JXMN109186' );
+                         '6BRHV40A1PM100101' );
 
 COMMIT;
 
 --3(d)
 
--- Update the JOB details for Victoria Ella
+-- Update the JOB details for Harriet Calloway
 -- Job cost must be updated since it is no longer the same as quote cost. 
 -- Join QUOTE and CUSTOMER on cust_no to find the correct quote
 UPDATE job
@@ -120,9 +120,9 @@ UPDATE job
       FROM quote q
       JOIN customer c
     ON q.cust_no = c.cust_no
-     WHERE upper(c.cust_gname) = upper('VICTORIA')
-       AND upper(c.cust_fname) = upper('ELLA')
-       AND upper(c.cust_bname) = upper('Flintstone Store')
+     WHERE upper(c.cust_gname) = upper('HARRIET')
+       AND upper(c.cust_fname) = upper('CALLOWAY')
+       AND upper(c.cust_bname) = upper('Saltbush Provisions')
        AND q.quote_prepared_date = TO_DATE('17-May-2026','dd-Mon-yyyy')
 );
 
@@ -130,7 +130,7 @@ COMMIT;
 
 --3(e)
 
--- Delete the JOB row where the quote_no is Victoria Ella's 17-May-2026 quote
+-- Delete the JOB row where the quote_no is Harriet Calloway's 17-May-2026 quote
 -- The QUOTE row is kept because only the job is cancelled
 DELETE FROM job
  WHERE quote_no = (
@@ -138,9 +138,9 @@ DELETE FROM job
       FROM quote q
       JOIN customer c
     ON q.cust_no = c.cust_no
-     WHERE upper(c.cust_gname) = upper('VICTORIA')
-       AND upper(c.cust_fname) = upper('ELLA')
-       AND upper(c.cust_bname) = upper('Flintstone Store')
+     WHERE upper(c.cust_gname) = upper('HARRIET')
+       AND upper(c.cust_fname) = upper('CALLOWAY')
+       AND upper(c.cust_bname) = upper('Saltbush Provisions')
        AND q.quote_prepared_date = TO_DATE('17-May-2026','dd-Mon-yyyy')
 );
 
