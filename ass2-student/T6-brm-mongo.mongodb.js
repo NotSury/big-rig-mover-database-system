@@ -19,10 +19,10 @@ db.createCollection("customer_quotes");
 
 db.customer_quotes.insertMany([{
     "_id": 1,
-    "customer_name": "Michael Benjamin",
-    "customer_business": "FreshBox",
-    "customer_address": "55 Lonsdale Street, Melbourne, 3008",
-    "customer_phone": "0478901017",
+    "customer_name": "Nadia Okafor",
+    "customer_business": "Kettle and Crate Catering",
+    "customer_address": "210 Swanston Street, Melbourne, 3000",
+    "customer_phone": "0491570006",
     "customer_stats": {
         "number_of_quotes": 5,
         "number_of_jobs": 4,
@@ -84,10 +84,10 @@ db.customer_quotes.insertMany([{
 },
 {
     "_id": 4,
-    "customer_name": "Alexander Noah",
+    "customer_name": "Leon Fairweather",
     "customer_business": "-",
-    "customer_address": "56 Bourke Street, Melbourne, 3001",
-    "customer_phone": "0478901007",
+    "customer_address": "33 Lygon Street, Melbourne, 3053",
+    "customer_phone": "0491570158",
     "customer_stats": {
         "number_of_quotes": 5,
         "number_of_jobs": 4,
@@ -149,10 +149,10 @@ db.customer_quotes.insertMany([{
 },
 {
     "_id": 7,
-    "customer_name": "Kate Evelyn",
-    "customer_business": "Miller Co.",
-    "customer_address": "72 Cavill Avenue, Brisbane, 4217",
-    "customer_phone": "0489012018",
+    "customer_name": "Mei Tanaka",
+    "customer_business": "Bluegum Pottery Studio",
+    "customer_address": "19 Orchid Avenue, Surfers Paradise, 4217",
+    "customer_phone": "0491570313",
     "customer_stats": {
         "number_of_quotes": 5,
         "number_of_jobs": 3,
@@ -214,10 +214,10 @@ db.customer_quotes.insertMany([{
 },
 {
     "_id": 12,
-    "customer_name": "Robert James",
-    "customer_business": "Wilson Confectionery",
-    "customer_address": "38 Wellington Street, Perth, 6107",
-    "customer_phone": "0490123019",
+    "customer_name": "Ingrid Solberg",
+    "customer_business": "Northbound Book Exchange",
+    "customer_address": "61 Oxford Street, Leederville, 6007",
+    "customer_phone": "0491572549",
     "customer_stats": {
         "number_of_quotes": 5,
         "number_of_jobs": 3,
@@ -279,10 +279,10 @@ db.customer_quotes.insertMany([{
 },
 {
     "_id": 18,
-    "customer_name": "Victoria Ella",
-    "customer_business": "Flintstone Store",
-    "customer_address": "94 Henley Beach Road, Adelaide, 5095",
-    "customer_phone": "0401234020",
+    "customer_name": "Harriet Calloway",
+    "customer_business": "Saltbush Provisions",
+    "customer_address": "115 Port Road, Adelaide, 5007",
+    "customer_phone": "0491574632",
     "customer_stats": {
         "number_of_quotes": 6,
         "number_of_jobs": 3,
@@ -354,10 +354,10 @@ db.customer_quotes.insertMany([{
 },
 {
     "_id": 20,
-    "customer_name": "Emily Harper",
+    "customer_name": "Zara Whitlock",
     "customer_business": "-",
-    "customer_address": "127 Parramatta Road, Sydney, 2150",
-    "customer_phone": "0467890016",
+    "customer_address": "58 Church Street, Parramatta, 2150",
+    "customer_phone": "0491575789",
     "customer_stats": {
         "number_of_quotes": 5,
         "number_of_jobs": 3,
