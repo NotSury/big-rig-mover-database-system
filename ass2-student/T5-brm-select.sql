@@ -2,6 +2,12 @@
 -- T5-brm-select.sql
 -- T5 - Reporting queries
 
+-- SQL*Plus settings: allow blank lines inside statements (used for
+-- readability in query (c)) and widen the output so columns are not wrapped.
+SET SQLBLANKLINES ON
+SET LINESIZE 200
+SET PAGESIZE 100
+
 /* (a) */
 
 

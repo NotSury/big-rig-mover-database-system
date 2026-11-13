@@ -2,6 +2,12 @@
 -- T6-brm-json.sql
 -- T6 - Generate customer quote documents as JSON for MongoDB
 
+-- SQL*Plus settings: allow blank lines inside the statement, and use a wide
+-- line so each JSON document prints on one untruncated line (WRAP OFF would
+-- otherwise cut documents off at the default 80 character line size).
+SET SQLBLANKLINES ON
+SET LINESIZE 32767
+SET TRIMOUT ON
 SET PAGESIZE 100
 SET WRAP OFF
 SET HEADING OFF
