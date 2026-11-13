@@ -126,7 +126,7 @@ COMMENT ON COLUMN combination.trailer_code IS 'Code of the trailer in the pairin
 -- with only a given name or only a family name recorded.
 --------------------------------------
 INSERT INTO customer (cust_no, cust_gname, cust_fname, cust_bname, cust_contact_no, cust_street, cust_town, cust_pcode)
-VALUES (1, 'Nadia', 'Okafor', 'Kettle & Crate Catering', '0491570006', '210 Swanston Street', 'Melbourne', '3000');
+VALUES (1, 'Nadia', 'Okafor', 'Kettle and Crate Catering', '0491570006', '210 Swanston Street', 'Melbourne', '3000');
 
 INSERT INTO customer (cust_no, cust_gname, cust_fname, cust_bname, cust_contact_no, cust_street, cust_town, cust_pcode)
 VALUES (2, 'Tomasz', NULL, 'Ridgeline Timber Supplies', '0491570156', '8 Kent Street', 'Sydney', '2000');
