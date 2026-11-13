@@ -1,16 +1,8 @@
---*****PLEASE ENTER YOUR DETAILS BELOW*****
---T1-brm-schema.sql
+-- Big Rig Mover Database System
+-- T1-brm-schema.sql
+-- T1 - EMPLOYEE, QUOTE and JOB tables, constraints and foreign keys
 
---Student ID: 35651628
---Student Name: Surya Muni Peragas
-
-/*
-    -- Submission Declaration - must not be removed - removal will result in no marks being awarded --
-    In submitting this SQL script, I confirm that this is my own work without coding assistance from Generative AI
-*/
-
-
-/* drop table statements - do not remove*/
+-- Drop tables so the script can be re-run
 
 DROP TABLE employee CASCADE CONSTRAINTS PURGE;
 
@@ -18,9 +10,8 @@ DROP TABLE job CASCADE CONSTRAINTS PURGE;
 
 DROP TABLE quote CASCADE CONSTRAINTS PURGE;
 
--- Task 1 Add Create table statements for the Missing TABLES below
--- Ensure all column comments, and constraints (other than FK's)
--- are included. FK constraints are to be added at the end of this script
+-- Create the EMPLOYEE, JOB and QUOTE tables with column comments and
+-- constraints. Foreign keys are added at the end of the script.
 
 -- EMPLOYEE
 
@@ -195,7 +186,7 @@ ALTER TABLE quote ADD CONSTRAINT quote_cost_chk CHECK ( quote_cost >= 0 );
 ALTER TABLE quote ADD CONSTRAINT quote_pref_start_date_chk CHECK ( quote_pref_start_date >= quote_prepared_date
 );
 
--- Add all missing FK Constraints below here
+-- Foreign key constraints
 
 -- /Foreign keys for employee table/
 

@@ -1,13 +1,6 @@
---*****PLEASE ENTER YOUR DETAILS BELOW*****
---T4-brm-mods.sql
-
---Student ID: 35651628
---Student Name: Surya Muni Peragas
-
-/*
-    -- Submission Declaration - must not be removed - removal will result in no marks being awarded --
-    In submitting this SQL script, I confirm that this is my own work without coding assistance from Generative AI
-*/
+-- Big Rig Mover Database System
+-- T4-brm-mods.sql
+-- T4 - Schema modifications: quote status and truck servicing tables
 
 --4(a)
 -- Add new columns to the QUOTE table

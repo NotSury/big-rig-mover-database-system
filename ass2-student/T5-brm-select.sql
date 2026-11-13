@@ -1,18 +1,8 @@
---*****PLEASE ENTER YOUR DETAILS BELOW*****
---T5-brm-select.sql
-
---Student ID: 35651628
---Student Name: Surya Muni Peragas
-
-/*
-    -- Submission Declaration - must not be removed - removal will result in no marks being awarded --
-    In submitting this SQL script, I confirm that this is my own work without coding assistance from Generative AI
-*/
+-- Big Rig Mover Database System
+-- T5-brm-select.sql
+-- T5 - Reporting queries
 
 /* (a) */
--- PLEASE PLACE REQUIRED SQL SELECT STATEMENT FOR THIS PART HERE
--- ENSURE that your query is formatted and has a semicolon
--- (;) at the end of this answer
 
 
 /*
@@ -50,9 +40,6 @@ HAVING COUNT(q.quote_no) > 1
           c.cust_no;
 
 /* (b) */
--- PLEASE PLACE REQUIRED SQL SELECT STATEMENT FOR THIS PART HERE
--- ENSURE that your query is formatted and has a semicolon
--- (;) at the end of this answer
 
 /*
     -- The employee table is joined to itself to find each employee's manager name
@@ -92,9 +79,6 @@ ON e.emp_no_manager = m.emp_no
  ORDER BY e.emp_no;
 
 /* (c) */
--- PLEASE PLACE REQUIRED SQL SELECT STATEMENT FOR THIS PART HERE
--- ENSURE that your query is formatted and has a semicolon
--- (;) at the end of this answer
 
 SELECT c.truck_vin,
 

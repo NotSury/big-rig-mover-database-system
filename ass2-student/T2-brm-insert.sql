@@ -1,32 +1,13 @@
-/*****PLEASE ENTER YOUR DETAILS BELOW*****/
---T2-brm-insert.sql
-
---Student ID: 35651628
---Student Name: Surya Muni Peragas
+-- Big Rig Mover Database System
+-- T2-brm-insert.sql
+-- T2 - Sample data for EMPLOYEE, QUOTE and JOB (one transaction, one COMMIT)
 
 /*
-Indicate if AI was used (Yes/No):
-Yes
-
-If AI was used:
-I used <<Google Gemini>>
-I used these prompts:
-
-"Based on the uploaded T1-brm-schema.sql and the supplied brm-schema-insert.sql,
-create sample data for the EMPLOYEE, QUOTE, and JOB tables only.
-Use the existing customers and existing truck/trailer combinations from
-brm-schema-insert.sql where foreign keys are required.
-
-The data must include at least 10 employees with at least 2 managers, 2 truck dispatchers, 
-1 mechanic, and 2 drivers. It must include 30 quotes involving at least 5 customers and 
-2 truck dispatchers, with at least 2 customers placing at least 2 quotes. It must include 
-20 jobs involving at least 10 truck/trailer combinations, with at least 5 combinations used 
-in at least 2 jobs, at least 2 quotes not converted to jobs, at least 5 jobs with a different 
-cost from the quote, and at least 5 jobs with the same cost as the quote. 
-Use hardcoded numeric primary keys below 100, use TO_DATE for dates between 
-1 May 2026 and 31 July 2026, make the data sensible, and treat all inserts as one transaction 
-with one COMMIT at the end."
-
+  AI use: the first draft of this sample data was generated with Google
+  Gemini from the T1 schema and the base tables, using a prompt that set out
+  the required mix of rows (e.g. at least 10 employees across all four roles,
+  30 quotes, 20 jobs, some quotes never converted to jobs, some jobs costed
+  differently from their quote). The data was then reviewed and edited by hand.
 */
 
 --------------------------------------
